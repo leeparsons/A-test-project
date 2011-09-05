@@ -1,0 +1,13 @@
+.login {text-align:center;}
+
+.login div.fl {float:none;margin:5px auto;width:250px;}
+
+.login label {margin-right:10px;text-align:left;width:75px;float:left;line-height:25px;height:25px;}
+
+.login input {border:1px solid #7dbfc3;padding:3px;}
+
+.login input[type="text"],.login input[type="password"] {width:150px;}
+
+.login input[type="submit"] {background:#7dbfc3;color:#FFFFFF;cursor:pointer;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;}
+
+.innerwrap {border-top:3px solid #7dbfc3;-moz-border-radius:8px 8px 0 0;border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0}
