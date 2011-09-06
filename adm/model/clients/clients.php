@@ -66,7 +66,6 @@
 
                 $db->create($sql, array('?', '?', '?', '?', '?', '?', '?'), array($name, $description, $email, $file, $splash, time(), (int)$cID));
                 $db->close();
-
                 
             } else {
                 return false;   

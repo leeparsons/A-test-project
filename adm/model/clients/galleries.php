@@ -65,7 +65,7 @@
                 
                 $sql = "UPDATE clients SET modified = '?' WHERE cID = ?";
                 
-                $db->create($sql, '?', $cid);
+                $db->create($sql, array('?', '?'), array(time(), (int)$cid));
                 
                 //now create the gallery folder if not exists
                 

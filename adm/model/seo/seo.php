@@ -110,6 +110,11 @@ class seoModel {
     
     public static function checkIfSeoUrlExists($url = '', $id = -1) {
     
+        if (strlen($url) == 0) {
+            
+            return false;
+        }
+        
         $db = data::instantiate();
         
         if ((int)$id > 0) {

@@ -116,14 +116,21 @@
 
 		                
                 if ($this->seoUrls == 1) {
+                    
+                    
+                    if ($this->seoUrl !== '') {
                 
 
-                    $seod = seoModel::update($this->cidentify, 'splash/', serialize(array('c' => $this->cidentify)), '/splash/', $this->seoUrl, 'c');
+                        $seod = seoModel::update($this->cidentify, 'splash/', serialize(array('c' => $this->cidentify)), '/splash/', $this->seoUrl, 'c');
                 
-                    if ($seod) {
-                        $this->redirectAdm('clients/edit/?c=' . $this->cidentify);
+                        if ($seod) {
+                            $this->redirectAdm('clients/edit/?c=' . $this->cidentify);
+                        } else {
+                            $this->cError['seoUrl'] = 'That url is already taken.';
+                        }
                     } else {
-                        $this->cError['seoUrl'] = 'That url is already taken.';
+                        //remove the seo url if it exists!
+                        seoModel::deleteUrls($this->c, 'c');
                     }
                 } else {
                     $this->redirectAdm('clients/edit/?c=' . $this->cidentify);

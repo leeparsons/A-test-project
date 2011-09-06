@@ -79,13 +79,17 @@
 
                 galleriesModel::linkOptions($this->g, $this->optionsChecked);
                 if ($this->seoUrls == 1) {
-	                //update the seo url!
-        	        $params = array(
-                	                'c' =>  $this->cidentify,
-                        	        'g' =>  $this->g
-                                	);
-	                seoModel::update($this->g, 'splash/gallery/', $params, 'splash/gallery/', $this->seoUrl, 'g');
-		}
+                    if ($this->seoUrl !== '') {
+                        //update the seo url!
+                        $params = array(
+                                        'c' =>  $this->cidentify,
+                                        'g' =>  $this->g
+                                        );
+                        seoModel::update($this->g, 'splash/gallery/', $params, 'splash/gallery/', $this->seoUrl, 'g');
+                    } else {
+                        seoModel::deleteUrls($this->g, 'g');   
+                    }
+                }
                 
                 $this->redirectAdm('clients/clients/');
                 
